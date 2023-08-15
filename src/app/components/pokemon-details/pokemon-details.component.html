@@ -1,6 +1,7 @@
 <div *ngIf="pokemonDetails">
-  <h2>{{ pokemonDetails.name }}</h2>
+  <h2>{{ pokemonDetails.name | titlecase }}</h2>
   <img [src]="pokemonDetails.sprites.front_default" alt="{{ pokemonDetails.name }}">
+
   <div *ngIf="pokemonDetails">
     <h3>Estadísticas</h3>
     <ul>
@@ -9,6 +10,7 @@
       </li>
     </ul>
   </div>
+
   <div *ngIf="pokemonDetails">
     <h3>Tipos</h3>
     <ul>
@@ -17,6 +19,7 @@
       </li>
     </ul>
   </div>
+
   <div *ngIf="pokemonDetails">
     <h3>Habilidades</h3>
     <ul>
@@ -25,6 +28,7 @@
       </li>
     </ul>
   </div>
+
   <div *ngIf="pokemonDetails">
     <p><strong>Altura:</strong> {{ pokemonDetails.height / 10 }} m</p>
     <p><strong>Peso:</strong> {{ pokemonDetails.weight / 10 }} kg</p>

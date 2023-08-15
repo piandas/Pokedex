@@ -1,5 +1,5 @@
 <ul>
   <li *ngFor="let pokemon of pokemons">
-    <a [routerLink]="['/pokemon-details', pokemon.name]">{{ pokemon.name }}</a>
+    <a [routerLink]="['/pokemon-details', pokemon.name]">{{ pokemon.name | titlecase }}</a>
   </li>
 </ul>
