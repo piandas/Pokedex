@@ -1,21 +1,24 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError  } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 
 export class PokemonService {
+
+  private baseURL = 'https://pokeapi.co/api/v2';
+
   constructor(private http: HttpClient) {}
 
   getPokemons(limit: number = 100): Observable<any> {
-    return this.http.get(`https://pokeapi.co/api/v2/pokemon?limit=${limit}`);
+    return this.http.get(`${this.baseURL}/pokemon?limit=${limit}`);
   }
 
   getPokemonDetails(pokemonId: number | string): Observable<any> {
-    return this.http.get(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`).pipe(
+    return this.http.get(`${this.baseURL}/pokemon/${pokemonId}`).pipe(
       catchError(error => {
         console.error('Error fetching Pokemon details:', error);
         return throwError(() => new Error('Error fetching Pokemon details'));

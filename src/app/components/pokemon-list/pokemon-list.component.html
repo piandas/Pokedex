@@ -1,5 +1,6 @@
 <ul>
   <li *ngFor="let pokemon of pokemons">
+    <img [src]="pokemon.sprites.front_default" alt="{{ pokemon.name }}">
     <a [routerLink]="['/pokemon-details', pokemon.name]">{{ pokemon.name | titlecase }}</a>
   </li>
 </ul>

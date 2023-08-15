@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PokemonService } from '../../services/pokemon.service';
 import { map, catchError } from 'rxjs/operators';
+import { forkJoin, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -20,9 +21,13 @@ constructor(
       catchError((error) => {
         console.error('Error fetching pokemons:', error);
         return [];
+      }),
+      switchMap((pokemons: any[]) => {
+        const detailsObservables = pokemons.map(pokemon => this.pokemonService.getPokemonDetails(pokemon.name));
+        return forkJoin(detailsObservables);
       })
-    ).subscribe((pokemons: any[]) => {
-      this.pokemons = pokemons;
+    ).subscribe((pokemonsDetails: any[]) => {
+      this.pokemons = pokemonsDetails;
     });
   }
 
