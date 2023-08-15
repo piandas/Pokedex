@@ -1,15 +1,12 @@
-<div class="container-fluid">
+<div class="container-fluid" >
   <div class="row">
     <div *ngFor="let pokemon of pokemons" class="col-4 col-sm-4 col-md-3 col-lg-2 mb-4">
-      <div class="card">
+      <div class="card" [class.active]="selectedPokemon === pokemon" (click)="onPokemonSelected(pokemon)" >
         <img [src]="pokemon.sprites.front_default" alt="{{ pokemon.name }}" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-
-            <a (click)="onPokemonSelected(pokemon)">{{ pokemon.name | titlecase }}</a>
-
+          <h5 class="card-title text-center">
+            <a>{{ pokemon.name | titlecase }}</a>
           </h5>
-
           <app-pokemon-details *ngIf="selectedPokemon === pokemon" [pokemonDetails]="selectedPokemon"></app-pokemon-details>
         </div>
       </div>

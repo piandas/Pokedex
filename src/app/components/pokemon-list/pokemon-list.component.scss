@@ -1,20 +1,10 @@
 li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-
-  img {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
-  }
-}
-
-li {
   position: relative;
 
   .pokemon-details {
-    position: absolute;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
     top: 100%;
     left: 0;
     width: 300px;
@@ -24,6 +14,12 @@ li {
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     z-index: 10;
   }
+
+  img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
 }
 
 .card-title {
@@ -31,4 +27,16 @@ li {
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 16px;
+}
+
+.card {
+  cursor: pointer;
+
+  &:hover {
+      background-color: #f7f7f7;
+  }
+
+  &.active {
+      background-color: white;  // Color cuando los detalles están abiertos
+  }
 }

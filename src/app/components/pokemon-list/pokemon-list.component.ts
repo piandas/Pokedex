@@ -41,4 +41,5 @@ constructor(
       this.selectedPokemon = pokemon;
     }
   }
+
 }
