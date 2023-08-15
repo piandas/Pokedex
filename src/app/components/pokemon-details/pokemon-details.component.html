@@ -1,9 +1,7 @@
 <div *ngIf="pokemonDetails">
-  <h2>{{ pokemonDetails.name | titlecase }}</h2>
-  <img [src]="pokemonDetails.sprites.front_default" alt="{{ pokemonDetails.name }}">
 
   <div *ngIf="pokemonDetails">
-    <h3>Estadísticas</h3>
+    <h4>Estadísticas</h4>
     <ul>
       <li *ngFor="let stat of pokemonDetails.stats">
         {{ stat.stat.name | titlecase }}: {{ stat.base_stat }}
@@ -12,7 +10,7 @@
   </div>
 
   <div *ngIf="pokemonDetails">
-    <h3>Tipos</h3>
+    <h4>Tipos</h4>
     <ul>
       <li *ngFor="let type of pokemonDetails.types">
         {{ type.type.name | titlecase }}
@@ -21,7 +19,7 @@
   </div>
 
   <div *ngIf="pokemonDetails">
-    <h3>Habilidades</h3>
+    <h4>Habilidades</h4>
     <ul>
       <li *ngFor="let ability of pokemonDetails.abilities">
         {{ ability.ability.name | titlecase }}

@@ -25,3 +25,10 @@ li {
     z-index: 10;
   }
 }
+
+.card-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 16px;
+}

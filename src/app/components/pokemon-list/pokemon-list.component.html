@@ -1,8 +1,18 @@
-<ul>
-  <li *ngFor="let pokemon of pokemons">
-    <img [src]="pokemon.sprites.front_default" alt="{{ pokemon.name }}">
-    <a (click)="onPokemonSelected(pokemon)">{{ pokemon.name | titlecase }}</a>
+<div class="container-fluid">
+  <div class="row">
+    <div *ngFor="let pokemon of pokemons" class="col-4 col-sm-4 col-md-3 col-lg-2 mb-4">
+      <div class="card">
+        <img [src]="pokemon.sprites.front_default" alt="{{ pokemon.name }}" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">
 
-    <app-pokemon-details *ngIf="selectedPokemon === pokemon" [pokemonDetails]="selectedPokemon"></app-pokemon-details>
-  </li>
-</ul>
+            <a (click)="onPokemonSelected(pokemon)">{{ pokemon.name | titlecase }}</a>
+
+          </h5>
+
+          <app-pokemon-details *ngIf="selectedPokemon === pokemon" [pokemonDetails]="selectedPokemon"></app-pokemon-details>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
