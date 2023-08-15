@@ -14,6 +14,7 @@ constructor(
   private pokemonService: PokemonService) { }
 
   pokemons: any[] = [];
+  selectedPokemon: any = null;
 
   ngOnInit(): void {
     this.pokemonService.getPokemons().pipe(
@@ -31,5 +32,13 @@ constructor(
     });
   }
 
-
+  onPokemonSelected(pokemon: any): void {
+    if (this.selectedPokemon === pokemon) {
+      // Si el Pokémon seleccionado es clickeado nuevamente, cierra el desplegable.
+      this.selectedPokemon = null;
+    } else {
+      // Si se selecciona un Pokémon diferente, muestra sus detalles.
+      this.selectedPokemon = pokemon;
+    }
+  }
 }

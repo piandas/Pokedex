@@ -1,6 +1,8 @@
 <ul>
   <li *ngFor="let pokemon of pokemons">
     <img [src]="pokemon.sprites.front_default" alt="{{ pokemon.name }}">
-    <a [routerLink]="['/pokemon-details', pokemon.name]">{{ pokemon.name | titlecase }}</a>
+    <a (click)="onPokemonSelected(pokemon)">{{ pokemon.name | titlecase }}</a>
+
+    <app-pokemon-details *ngIf="selectedPokemon === pokemon" [pokemonDetails]="selectedPokemon"></app-pokemon-details>
   </li>
 </ul>

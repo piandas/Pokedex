@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { PokemonService } from '../../services/pokemon.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -10,8 +10,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./pokemon-details.component.scss']
 })
 export class PokemonDetailsComponent implements OnInit, OnDestroy {
-
-  pokemonDetails: any;
+  @Input() pokemonDetails: any;
   private destroy$ = new Subject<void>();
 
   constructor(private pokemonService: PokemonService, private route: ActivatedRoute) {}
