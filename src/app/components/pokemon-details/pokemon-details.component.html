@@ -1,34 +1,39 @@
-<div *ngIf="pokemonDetails">
+<div *ngIf="pokemonDetails" class="p-2">
+  <h2 class="text-center">{{ pokemonDetails.name | titlecase }}</h2>
 
-  <div *ngIf="pokemonDetails">
-    <h4>Estadísticas</h4>
-    <ul>
-      <li *ngFor="let stat of pokemonDetails.stats">
-        {{ stat.stat.name | titlecase }}: {{ stat.base_stat }}
-      </li>
-    </ul>
+  <div class="row mt-2">
+      <div class="col-6 wyh">
+          <strong>H:</strong> {{ pokemonDetails.height / 10 }}m
+      </div>
+      <div class="col-6 wyh">
+          <strong>W:</strong> {{ pokemonDetails.weight / 10 }}kg
+      </div>
   </div>
 
-  <div *ngIf="pokemonDetails">
-    <h4>Tipos</h4>
-    <ul>
-      <li *ngFor="let type of pokemonDetails.types">
-        {{ type.type.name | titlecase }}
-      </li>
-    </ul>
+  <div class="mt-2">
+      <h4>Stats</h4>
+      <ul class="reduced">
+          <li *ngFor="let stat of pokemonDetails.stats">
+              {{ stat.stat.name | titlecase }}: {{ stat.base_stat }}
+          </li>
+      </ul>
   </div>
 
-  <div *ngIf="pokemonDetails">
-    <h4>Habilidades</h4>
-    <ul>
-      <li *ngFor="let ability of pokemonDetails.abilities">
-        {{ ability.ability.name | titlecase }}
-      </li>
-    </ul>
+  <div>
+      <h4>Type</h4>
+      <ul class="list-inline reduced">
+          <li class="list-inline-item" *ngFor="let type of pokemonDetails.types">
+              {{ type.type.name | titlecase }}
+          </li>
+      </ul>
   </div>
 
-  <div *ngIf="pokemonDetails">
-    <p><strong>Altura:</strong> {{ pokemonDetails.height / 10 }} m</p>
-    <p><strong>Peso:</strong> {{ pokemonDetails.weight / 10 }} kg</p>
+  <div>
+      <h4>Habilities</h4>
+      <ul class="list-inline">
+          <li class="list-inline-item" *ngFor="let ability of pokemonDetails.abilities">
+              {{ ability.ability.name | titlecase }}
+          </li>
+      </ul>
   </div>
 </div>

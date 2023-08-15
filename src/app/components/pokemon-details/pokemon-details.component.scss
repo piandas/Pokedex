@@ -1,13 +1,31 @@
-h3 {
+h2 {
+  font-size: 0.8rem;
+  margin-bottom: 0;
+}
+
+h4 {
   border-bottom: 1px solid gray;
-  padding-bottom: 10px;
+  font-size: 0.6rem;
+  margin-bottom: 0;
+  font-weight: bold;
+}
+
+strong {
+  font-size: 0.5rem;
+
+}
+
+.wyh {
+  padding-left: 16px;
+  padding-right: 0px;
+}
+
+.reduced {
+  margin-bottom: 5px;
 }
 
 ul {
   list-style-type: none;
   padding-left: 0;
-}
-
-li {
-  padding: 5px 0;
+  margin-bottom: 0;
 }

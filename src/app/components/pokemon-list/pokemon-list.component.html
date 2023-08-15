@@ -7,7 +7,9 @@
           <h5 class="card-title text-center">
             <a>{{ pokemon.name | titlecase }}</a>
           </h5>
-          <app-pokemon-details *ngIf="selectedPokemon === pokemon" [pokemonDetails]="selectedPokemon"></app-pokemon-details>
+          <div class="pokemon-details-overlay" *ngIf="selectedPokemon === pokemon">
+            <app-pokemon-details [pokemonDetails]="selectedPokemon"></app-pokemon-details>
+          </div>
         </div>
       </div>
     </div>
