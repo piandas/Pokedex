@@ -25,4 +25,6 @@ constructor(
       this.pokemons = pokemons;
     });
   }
+
+
 }
