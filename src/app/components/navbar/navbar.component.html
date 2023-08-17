@@ -3,5 +3,15 @@
     <a href="/">
       <img src="assets/images/pokemon-logo.png" alt="Pokemon Logo" class="navbar-logo">
     </a>
+    <!-- Botón de favoritos -->
+    <button (click)="toggleFavoritesDropdown()">Favoritos</button>
+    <div *ngIf="showFavoritesDropdown" class="favorites-dropdown">
+      <!-- Lista de pokémon favoritos -->
+      <div *ngFor="let pokemon of favoritePokemons">
+        {{ pokemon }}
+      </div>
+      <!-- Botón para eliminar todos los favoritos -->
+      <button (click)="removeAllFavorites()">Eliminar todos</button>
+    </div>
   </div>
 </nav>

@@ -35,7 +35,7 @@ constructor(
                 pokemon.isFavorite = favoritePokemons.includes(pokemon.name);
             });
         });
-    });
+      });
 
     this.pokemonService.getFavoritePokemons().subscribe(favoritePokemons => {
       this.pokemons.forEach(pokemon => {
@@ -43,7 +43,7 @@ constructor(
               pokemon.isFavorite = true;
           }
       });
-  });
+    });
   }
 
   onPokemonSelected(pokemon: any): void {
