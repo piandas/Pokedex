@@ -30,8 +30,31 @@ li {
 }
 
 .card {
-  position: relative;
+  position: relative; // Asegúrate de que la tarjeta tenga una posición relativa
   cursor: pointer;
+
+  .favorite-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10; // Ajusta el z-index para que el ícono se superponga a otros elementos
+
+    i.far {
+      color: grey;
+    }
+
+    i.fas {
+      color: red;
+    }
+
+    transition: opacity 0.3s ease;
+
+    &[style*="opacity: 0"] {
+      pointer-events: none; // Desactiva los eventos de clic solo cuando la opacidad es 0.
+    }
+  }
 
   .pokemon-details-overlay {
     position: absolute;

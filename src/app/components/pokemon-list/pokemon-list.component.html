@@ -2,6 +2,9 @@
   <div class="row" style="margin-top: 80px">
     <div *ngFor="let pokemon of pokemons" class="col-4 col-sm-4 col-md-2 col-lg-2 mb-4">
       <div class="card" [class.active]="selectedPokemon === pokemon" (click)="onPokemonSelected(pokemon)" >
+        <div class="favorite-icon" [style.opacity]="selectedPokemon === pokemon ? '0' : '1'" (click)="toggleFavorite(pokemon); $event.stopPropagation()">
+          <i [class]="pokemon.isFavorite ? 'fas fa-heart' : 'far fa-heart'"></i>
+        </div>
         <img [src]="pokemon.sprites.front_default" alt="{{ pokemon.name }}" class="card-img-top">
         <div class="card-body">
           <h5 class="card-title text-center">

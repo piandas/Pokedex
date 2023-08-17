@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, throwError  } from 'rxjs';
+import { Observable, throwError, of  } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 @Injectable({
@@ -25,4 +25,11 @@ export class PokemonService {
       })
     );
   }
+
+  addPokemonToFavorites(pokemon: any): Observable<any> {
+    // Aquí es donde enviarías la solicitud POST a tu API
+    // Por ahora, solo devolvemos un observable vacío
+    return of(null);
+  }
+
 }
