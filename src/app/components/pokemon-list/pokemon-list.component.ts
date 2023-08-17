@@ -27,8 +27,14 @@ constructor(
         const detailsObservables = pokemons.map(pokemon => this.pokemonService.getPokemonDetails(pokemon.name));
         return forkJoin(detailsObservables);
       })
-    ).subscribe((pokemonsDetails: any[]) => {
-      this.pokemons = pokemonsDetails;
+      ).subscribe((pokemonsDetails: any[]) => {
+        this.pokemons = pokemonsDetails;
+        // Después de obtener los detalles, obtén la lista de favoritos
+        this.pokemonService.getFavoritePokemons().subscribe(favoritePokemons => {
+            this.pokemons.forEach(pokemon => {
+                pokemon.isFavorite = favoritePokemons.includes(pokemon.name);
+            });
+        });
     });
 
     this.pokemonService.getFavoritePokemons().subscribe(favoritePokemons => {
