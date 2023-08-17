@@ -43,3 +43,8 @@ app.delete('/favorites', (req, res) => {
       res.status(404).send({ message: 'Pokémon no encontrado en favoritos' });
   }
 });
+
+app.delete('/favorites/all', (req, res) => {
+  favoritePokemons.length = 0; // Vacía el array de favoritos
+  res.status(200).send({ message: 'Todos los Pokémon han sido eliminados de favoritos' });
+});

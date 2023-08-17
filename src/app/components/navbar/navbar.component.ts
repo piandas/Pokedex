@@ -40,6 +40,8 @@ export class NavbarComponent implements OnInit {
   }
 
   removeAllFavorites() {
-    // Aquí debes implementar la lógica para eliminar todos los pokémon favoritos del backend
+    this.pokemonService.removeAllFavorites().subscribe(response => {
+      this.favoritePokemons = []; // Vacía la lista de favoritos en el frontend
+    });
   }
 }

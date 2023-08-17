@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { PokemonService } from '../../services/pokemon.service';
 import { map, catchError } from 'rxjs/operators';
-import { forkJoin, switchMap } from 'rxjs';
+import { forkJoin, switchMap, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -10,8 +10,9 @@ import { forkJoin, switchMap } from 'rxjs';
 })
 export class PokemonListComponent {
 
-constructor(
-  private pokemonService: PokemonService) { }
+private favoritesSubscription!: Subscription; // Suscripción para escuchar cambios en los favoritos
+
+constructor(private pokemonService: PokemonService) { }
 
   pokemons: any[] = [];
   selectedPokemon: any = null;
@@ -36,12 +37,27 @@ constructor(
             });
         });
       });
-
-    this.pokemonService.getFavoritePokemons().subscribe(favoritePokemons => {
-      this.pokemons.forEach(pokemon => {
+      this.pokemonService.getFavoritePokemons().subscribe(favoritePokemons => {
+        this.pokemons.forEach(pokemon => {
           if (favoritePokemons.includes(pokemon.name)) {
               pokemon.isFavorite = true;
           }
+      });
+    });
+      this.favoritesSubscription = this.pokemonService.favoritesChanged.subscribe(() => {
+        this.updateFavoriteStatus();
+    });
+  }
+
+  ngOnDestroy(): void {
+    // Cancela la suscripción al destruir el componente
+    this.favoritesSubscription.unsubscribe();
+  }
+
+  updateFavoriteStatus() {
+    this.pokemonService.getFavoritePokemons().subscribe(favoritePokemons => {
+      this.pokemons.forEach(pokemon => {
+        pokemon.isFavorite = favoritePokemons.includes(pokemon.name);
       });
     });
   }

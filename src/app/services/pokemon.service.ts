@@ -51,4 +51,10 @@ export class PokemonService {
     return this.http.get<string[]>('http://localhost:3000/favorites');
   }
 
+  removeAllFavorites(): Observable<any> {
+    return this.http.delete('http://localhost:3000/favorites/all').pipe(
+      tap(() => this.favoritesChanged.next()) // Emite el evento cuando todos los favoritos se eliminen
+    );
+  }
+
 }
