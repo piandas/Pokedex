@@ -26,10 +26,8 @@ export class PokemonService {
     );
   }
 
-  addPokemonToFavorites(pokemon: any): Observable<any> {
-    // Aquí es donde enviarías la solicitud POST a tu API
-    // Por ahora, solo devolvemos un observable vacío
-    return of(null);
-  }
+  addPokemonToFavorites(pokemonName: string): Observable<any> {
+    return this.http.post('http://localhost:3000/favorites', { name: pokemonName });
+}
 
 }

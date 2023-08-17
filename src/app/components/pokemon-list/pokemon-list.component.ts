@@ -44,7 +44,11 @@ constructor(
 
   toggleFavorite(pokemon: any): void {
     pokemon.isFavorite = !pokemon.isFavorite;
-    // Aquí es donde enviarías la solicitud POST a tu API para agregar o eliminar el Pokémon de los favoritos
+    if (pokemon.isFavorite) {
+        this.pokemonService.addPokemonToFavorites(pokemon.name).subscribe(response => {
+            console.log(response.message);
+        });
+    }
+    // Aquí puedes agregar lógica adicional para eliminar el Pokémon de favoritos si es necesario
   }
-
 }
