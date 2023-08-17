@@ -40,10 +40,10 @@ li {
     right: 0;
     bottom: 0;
     background-color: rgba(255, 255, 255, 0.9); // Fondo semitransparente
-
     justify-content: center;
     overflow: auto;
-    font-size: 0.6rem;;  // En caso de que los detalles excedan el tamaño de la tarjeta
+    font-size: 0.6rem;
+    max-width: 90%;
 }
 
   &:hover {
@@ -53,4 +53,8 @@ li {
   &.active {
       background-color: white;  // Color cuando los detalles están abiertos
   }
+}
+
+.caja {
+  margin-top: 60px;
 }

@@ -1,0 +1,21 @@
+.navbar {
+  width: 100%;
+  background-color: #f7f7f7; /* Color de fondo del navbar */
+  padding: 10px 0;
+  position: fixed; /* Hace que el navbar sea estático en la parte superior */
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Asegura que el navbar esté por encima de otros elementos */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra ligera para darle profundidad */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.navbar-logo {
+  height: 40px; /* Ajusta según el tamaño que desees para el logo */
+}
+
