@@ -8,7 +8,9 @@ const PORT = 3000;
 // Middleware
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
-app.use(cors());
+app.use(cors({
+  methods: ['GET', 'POST', 'DELETE']
+}));
 
 
 
@@ -29,4 +31,15 @@ app.get('/favorites', (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}/favorites`);
+});
+
+app.delete('/favorites', (req, res) => {
+  const pokemonName = req.body.name;
+  const index = favoritePokemons.indexOf(pokemonName);
+  if (index > -1) {
+      favoritePokemons.splice(index, 1);
+      res.status(200).send({ message: 'Pokémon eliminado de favoritos' });
+  } else {
+      res.status(404).send({ message: 'Pokémon no encontrado en favoritos' });
+  }
 });

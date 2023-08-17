@@ -30,6 +30,14 @@ constructor(
     ).subscribe((pokemonsDetails: any[]) => {
       this.pokemons = pokemonsDetails;
     });
+
+    this.pokemonService.getFavoritePokemons().subscribe(favoritePokemons => {
+      this.pokemons.forEach(pokemon => {
+          if (favoritePokemons.includes(pokemon.name)) {
+              pokemon.isFavorite = true;
+          }
+      });
+  });
   }
 
   onPokemonSelected(pokemon: any): void {
@@ -48,7 +56,11 @@ constructor(
         this.pokemonService.addPokemonToFavorites(pokemon.name).subscribe(response => {
             console.log(response.message);
         });
+    } else {
+        this.pokemonService.removePokemonFromFavorites(pokemon.name).subscribe(response => {
+            console.log(response.message);
+        });
     }
-    // Aquí puedes agregar lógica adicional para eliminar el Pokémon de favoritos si es necesario
   }
+  // Aquí puedes agregar lógica adicional para eliminar el Pokémon de favoritos si es necesari
 }

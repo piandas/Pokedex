@@ -28,6 +28,14 @@ export class PokemonService {
 
   addPokemonToFavorites(pokemonName: string): Observable<any> {
     return this.http.post('http://localhost:3000/favorites', { name: pokemonName });
-}
+  }
+
+  getFavoritePokemons(): Observable<string[]> {
+    return this.http.get<string[]>('http://localhost:3000/favorites');
+  }
+
+  removePokemonFromFavorites(pokemonName: string): Observable<any> {
+      return this.http.delete('http://localhost:3000/favorites', { body: { name: pokemonName } });
+  }
 
 }
