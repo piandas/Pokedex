@@ -11,6 +11,7 @@
   z-index: 1000; /* Asegura que el navbar esté por encima de otros elementos */
   top: 0;
   left: 0;
+  background-color: #EF5350;
 }
 
 .navbar-logo {
@@ -19,9 +20,10 @@
 
 /* Estilización del botón de favoritos */
 button {
+  font-weight: bold;
   padding: 10px 15px;
   border: none;
-  background-color: #007bff;
+  background-color: #FECA1B;
   color: white;
   border-radius: 5px;
   cursor: pointer;
@@ -29,7 +31,7 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #eed171;
 }
 
 /* Estilización del menú desplegable de favoritos */
