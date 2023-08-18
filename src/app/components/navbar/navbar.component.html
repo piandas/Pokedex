@@ -8,7 +8,7 @@
     <div *ngIf="showFavoritesDropdown" class="favorites-dropdown">
       <!-- Lista de pokémon favoritos -->
       <div *ngFor="let pokemon of favoritePokemons">
-        {{ pokemon }}
+        {{ pokemon | titlecase }}
       </div>
       <!-- Botón para eliminar todos los favoritos -->
       <button (click)="removeAllFavorites()">Eliminar todos</button>
